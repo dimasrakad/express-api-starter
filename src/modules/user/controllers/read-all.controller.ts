@@ -11,7 +11,7 @@ export const readAll = async (req: Request, res: Response, next: NextFunction) =
 
     User.find()
       .then((users) => {
-        res.status(200).json({ users });
+        res.status(200).json(users);
       })
       .catch((e) => next(e));
   } catch (error) {

@@ -9,9 +9,11 @@ export const readOne = async (req: Request, res: Response, next: NextFunction) =
       "mongodb+srv://belajar-mongodb:belajar-mongodb-hehe@belajar.nsejf2x.mongodb.net/Express-API-Starter?retryWrites=true&w=majority"
     );
 
+    // let userId;
+
     User.findById(req.url.toString().substring(1))
       .then((user) => {
-        res.status(200).json({ user });
+        res.status(200).json(user);
       })
       .catch((e) => next(e));
   } catch (error) {

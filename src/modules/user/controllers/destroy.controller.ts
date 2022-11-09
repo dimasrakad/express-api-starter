@@ -11,7 +11,7 @@ export const destroy = async (req: Request, res: Response, next: NextFunction) =
 
     User.findByIdAndDelete(req.url.toString().substring(1))
       .then(() => {
-        res.status(204).json({});
+        res.status(204).json();
       })
       .catch((e) => next(e));
   } catch (error) {
