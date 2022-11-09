@@ -22,13 +22,13 @@ describe("end to end testing", () => {
     const app = await createApp();
     const response = await request(app).get("/v1/user/" + userId);
     expect(response.statusCode).toEqual(200);
-    expect(response.body.id).not.toBeNull();
+    expect(response.body._id).not.toBeNull();
   });
   it("update", async () => {
     const app = await createApp();
     const response = await request(app).patch("/v1/user/" + userId);
     expect(response.statusCode).toEqual(200);
-    expect(response.body.id).not.toBeNull();
+    expect(response.body._id).not.toBeNull();
   });
   it("destroy", async () => {
     const app = await createApp();
