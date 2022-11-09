@@ -10,13 +10,13 @@ describe("end to end testing", () => {
       .set({ firstName: "Sakura", lastName: "Haruno", phone: "081234", email: "sakura@gmail.com" });
     userId = response.body.id;
     expect(response.statusCode).toEqual(201);
-    expect(response.body.id).not.toEqual([]);
+    expect(response.body.id).not.toBeNull();
   });
   it("read all", async () => {
     const app = await createApp();
     const response = await request(app).get("/v1/user");
     expect(response.statusCode).toEqual(200);
-    expect(response.body).not.toBeNull();
+    expect(response.body).not.toEqual([]);
   });
   it("read one", async () => {
     const app = await createApp();
