@@ -16,9 +16,12 @@ export const create = async (req: Request, res: Response, next: NextFunction) =>
       email: req.headers.email,
     });
 
-    const result = await user.save();
-
-    res.status(201).json({ id: result._id });
+    await user
+      .save()
+      .then((user) => {
+        res.status(201).json(user);
+      })
+      .catch((e) => next(e));
   } catch (error) {
     next(error);
   }

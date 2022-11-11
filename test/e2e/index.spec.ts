@@ -8,9 +8,9 @@ describe("end to end testing", () => {
     const response = await request(app)
       .post("/v1/user")
       .set({ firstName: "Sakura", lastName: "Haruno", phone: "081234", email: "sakura@gmail.com" });
-    userId = response.body.id;
+    userId = response.body._id;
     expect(response.statusCode).toEqual(201);
-    expect(response.body.id).not.toBeNull();
+    expect(response.body._id).not.toBeNull();
   });
   it("read all", async () => {
     const app = await createApp();
